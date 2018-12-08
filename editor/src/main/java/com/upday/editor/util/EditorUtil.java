@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import com.upday.editor.dao.entity.ArticleEntity;
 import com.upday.editor.model.Article;
+import com.upday.editor.model.SearchCriteria;
 
 public class EditorUtil {
 	
@@ -24,5 +25,20 @@ public static ArticleEntity getArticleEntity(Article article){
 		
 		return null;
 	}
+
+
+public static SearchCriteria getSearchCriteria(String criteria) {
+	SearchCriteria sc = new SearchCriteria();
+	String [] filter = null;
+	if(criteria !=null) {
+		if(criteria.contains(":")) {
+			filter = criteria.split(":");
+			sc.setKey(filter[0]);
+			sc.setValue(filter[1]);
+		}
+	}
+	return sc;
+	
+}
 
 }

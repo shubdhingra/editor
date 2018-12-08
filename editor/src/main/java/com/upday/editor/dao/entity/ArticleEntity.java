@@ -1,11 +1,15 @@
 package com.upday.editor.dao.entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.persistence.Version;
 
 import com.upday.editor.dto.AuthorDto;
 
@@ -19,8 +23,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-//@Table(name="Article", uniqueConstraints = {@UniqueConstraint(columnNames = {""})})
-public class ArticleEntity {
+@Table(name="Article", uniqueConstraints = {@UniqueConstraint(columnNames = {"HEADER"})})
+public class ArticleEntity implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -38,12 +42,17 @@ public class ArticleEntity {
 	private String text;
 	
 	@Column(name="KEYWORDS")
-	private List<String> keywords;
+	private String keywords;
 	
 	@Column(name = "PUBLISH_DATE")
 	private LocalDateTime publishDate;
 	
-	private AuthorDto author;
+	@Column(name="AUTHOR")
+	private String author;
+	
+	@Version
+	@Column(name = "Etag")
+	private int eTag;
 	
 
 }

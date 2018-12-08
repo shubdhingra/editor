@@ -1,8 +1,9 @@
-package com.upday.editor.editor;
+package com.upday.editor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.google.common.base.Predicates;
 
@@ -13,6 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
 @SpringBootApplication
+//@ComponentScan({"com.upday", "com.upday.editor.repository","com.upday.editor.dao"})
 public class EditorApplication {
 
 	public static void main(String[] args) {

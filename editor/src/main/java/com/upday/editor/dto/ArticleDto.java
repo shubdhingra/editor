@@ -26,7 +26,7 @@ public class ArticleDto   {
 	private String description;
 	private String text;
 	private String keywords;
-	private AuthorDto author;
+	private String author;
 	private LocalDateTime publishDate;
 	
 	

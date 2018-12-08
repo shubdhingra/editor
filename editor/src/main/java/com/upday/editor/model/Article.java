@@ -22,8 +22,8 @@ public class Article {
 	private String header;
 	private String description;
 	private String text;
-	private List<String> keywords;
-	private AuthorDto author;
+	private String keywords;
+	private String author;
 	private LocalDateTime publishDate;
 	private int eTag;
 

@@ -13,13 +13,13 @@ import com.upday.editor.dto.ArticleDto;
 @Service
 public interface ArticleService {
 	
-	public String createArticle(ArticleDto article);
+	public ArticleResource createArticle(ArticleDto article);
 	
-	public List<ArticleResource> getArticles();
+	public List<ArticleResource> getArticles(String param);
 	
 	public ArticleResource getArticleById(String articleUUID);
 	
-	public ArticleResource updateArticle(ArticleDto article, String articleUUID);
+	public ArticleResource updateArticle(ArticleDto article, String articleUUID, String ifMatch);
 	
 	public void deleteArticle(String articleUUID);
 

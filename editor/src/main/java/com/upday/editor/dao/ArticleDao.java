@@ -14,5 +14,8 @@ public interface ArticleDao {
 	public ArticleEntity getArticleByUUID(String articleUUID);
 	
 	public void deleteArticle(ArticleEntity article);
+	public List<ArticleEntity> getArticlesByKeywords(String keywords);
+
+	List<ArticleEntity> getArticlesByAuthor(String author);
 
 }

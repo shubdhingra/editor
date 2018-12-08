@@ -4,6 +4,9 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.http.HttpHeaders.IF_MATCH;
+
+import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
@@ -12,12 +15,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,16 +43,14 @@ public class ArticleController {
 	private ArticleServiceImpl articleService;
 
 	@ResponseStatus(CREATED)
-	@PostMapping
+	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation("createArticle")
 	public ResponseEntity<ArticleResource> createArticle(
 			@RequestBody @Validated(ArticleDto.CreateArticle.class) ArticleDto createArticleDto) {
 
 		log.debug("Creating Article {}", createArticleDto.toString());
-
-//		/Article article = modelMapper.map(createArticleDto, Article.class);
-		String articleUUID = articleService.createArticle(createArticleDto);
-		ArticleResource articleResource = ArticleResource.builder().articleUUID(articleUUID).build();
+		ArticleResource articleResource = articleService.createArticle(createArticleDto);
+		
 		return new ResponseEntity<>(articleResource, HttpStatus.CREATED);
 
 	}
@@ -59,10 +60,11 @@ public class ArticleController {
 	@ApiOperation("updateArticleByAuthUUID")
 	public ResponseEntity<ArticleResource> updateArticleByAuthUUID(
 			@RequestBody @Validated(ArticleDto.CreateArticle.class) ArticleDto createArticleDto,
-			@PathVariable String articleUUID) {
+			@PathVariable String articleUUID,
+			@NotNull @RequestHeader(IF_MATCH) final String ifMatch) {
 
 		log.debug("Updating Article {}", createArticleDto.getHeader());
-		ArticleResource articleResource = articleService.updateArticle(createArticleDto, articleUUID);
+		ArticleResource articleResource = articleService.updateArticle(createArticleDto, articleUUID, ifMatch);
 		return new ResponseEntity<>(articleResource, HttpStatus.OK);
 
 	}
@@ -70,9 +72,7 @@ public class ArticleController {
 	@ResponseStatus(NO_CONTENT)
 	@RequestMapping(value = "/{articleUUID}", method = RequestMethod.DELETE)
 	@ApiOperation("deletArticleByAuthUUID")
-	public void deleteArticleByAuthUUID(
-			@RequestBody @Validated(ArticleDto.CreateArticle.class) ArticleDto createArticleDto,
-			@PathVariable String articleUUID) {
+	public void deleteArticleByAuthUUID(@PathVariable String articleUUID) {
 
 		log.debug("Deleting Article with ID {}", articleUUID);
 		articleService.deleteArticle(articleUUID);
@@ -80,22 +80,24 @@ public class ArticleController {
 	}
 
 	@ResponseStatus(OK)
-	@GetMapping
+	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation("getAllArticles")
-	public String getAllArticles() {
+	public ResponseEntity<List<ArticleResource>> getAllArticles(@RequestParam(value="search",required=false) String search) {
 
-		//log.debug("Creating Article {}", createArticleDto.toString());
-		return "SHUBHAM";
+		log.debug("Get details of all Article");
+		List<ArticleResource> articleResource = articleService.getArticles(search);
+		return ResponseEntity.ok(articleResource); 
 
 	}
 
 	@ResponseStatus(OK)
-	@RequestMapping(value = "/{articleUUID}/", method = RequestMethod.GET)
+	@RequestMapping(value = "/{articleUUID}", method = RequestMethod.GET)
 	@ApiOperation("getArticleByAuthUUID")
-	public void getArticleByUUID(@PathVariable @NotNull(message = MessageConstants.ARTICLE_UUID_CONSTRAINT) String articleUUID) {
+	public ResponseEntity<ArticleResource> getArticleByUUID(@PathVariable @NotNull(message = MessageConstants.ARTICLE_UUID_CONSTRAINT) String articleUUID) {
 
 		log.debug("Get details of Article with id {}", articleUUID);
 		ArticleResource articleResource = articleService.getArticleById(articleUUID);
+		return ResponseEntity.ok(articleResource); 
 
 	}
 

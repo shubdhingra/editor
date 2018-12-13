@@ -1,8 +1,13 @@
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/editor}
-    username: ${SPRING_DATASOURCE_USERNAME:root}
+    url: jdbc:h2:file:~/h2/editor;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
     password: ${SPRING_DATASOURCE_PASSWORD:root}
+    driverClassName: org.h2.Driver
+  h2:
+   console:
+      enabled: true
+      path: /h2 
   jpa:
     generate-ddl: false
     hibernate:

@@ -23,6 +23,10 @@ public class EditorConstants {
 	
 	public static final String INVALID_SEARCH_CRITERIA = "Filter criteria used is invalid";
 	
-	 public static final String _500_INTERNAL_SERVER_ERROR_MESSAGE = "Unable to process request.";
+	public static final String _500_INTERNAL_SERVER_ERROR_MESSAGE = "Unable to process request.";
+	 
+	public static final int MAX_HEADER_SIZE_ALLOWED = 20;
+	
+	public static final int MAX_DESCRIPTION_SIZE_ALLOWED = 255; 
 
 }

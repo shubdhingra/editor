@@ -1,4 +1,4 @@
-CREATE TABLE article (
+CREATE TABLE IF NOT EXISTS article (
   articleUUID varchar(255) NOT NULL,
   header varchar(255) NOT NULL,
   text varchar(255) DEFAULT NULL,

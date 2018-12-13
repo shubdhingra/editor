@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.upday.editor.constants.EditorConstants;
 import com.upday.editor.constants.MessageConstants;
 
 import lombok.AllArgsConstructor;
@@ -19,10 +20,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ArticleDto   {
 	
-	@Size(message = MessageConstants.HEADER_CONSTRAINT_MESSAGE, max = 20, groups = CreateArticle.class)
-	@NotEmpty(message = MessageConstants.HEADER_EMPTY_MESSAGE, groups = CreateArticle.class)
+	@Size(message = MessageConstants.HEADER_CONSTRAINT_MESSAGE, max = EditorConstants.MAX_HEADER_SIZE_ALLOWED)
+	@NotEmpty(message = MessageConstants.HEADER_EMPTY_MESSAGE)
 	private String header;
-	@Size(max = 255)
+	@Size(max = EditorConstants.MAX_DESCRIPTION_SIZE_ALLOWED)
 	private String description;
 	private String text;
 	private String keywords;

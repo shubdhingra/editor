@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.stereotype.Repository;
 
@@ -89,6 +90,12 @@ public class ArticleDaoImpl implements ArticleDao {
 	public List<ArticleEntity> getArticlesByKeywords(String keywords) {
 		log.debug("Fetching all the articles by keywords {}", keywords );
 		return articleRepository.findArticlesbyKeywords(keywords);
+	}
+
+	@Override
+	public List<ArticleEntity> getArticlesbySpec(Specification<ArticleEntity> spec) {
+		log.debug("Fetching articles on the basis of provided specification {}", spec.toString());
+		return articleRepository.findAll(spec);
 	}
 
 

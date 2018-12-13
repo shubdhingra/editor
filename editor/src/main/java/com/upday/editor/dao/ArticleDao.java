@@ -2,6 +2,8 @@ package com.upday.editor.dao;
 
 import java.util.List;
 
+import org.springframework.data.jpa.domain.Specification;
+
 import com.upday.editor.dao.entity.ArticleEntity;
 
 public interface ArticleDao {
@@ -17,5 +19,6 @@ public interface ArticleDao {
 	public List<ArticleEntity> getArticlesByKeywords(String keywords);
 
 	List<ArticleEntity> getArticlesByAuthor(String author);
+	List<ArticleEntity> getArticlesbySpec(Specification<ArticleEntity> spec);
 
 }

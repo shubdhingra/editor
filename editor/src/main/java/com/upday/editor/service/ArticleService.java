@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.upday.editor.domain.ArticleResource;
@@ -22,5 +24,7 @@ public interface ArticleService {
 	public ArticleResource updateArticle(ArticleDto article, String articleUUID, String ifMatch);
 	
 	public void deleteArticle(String articleUUID);
+
+	public Page<ArticleResource> getArticlesbySpec(String author, String keywords, String fromDate, String toDate, Pageable pageable);
 
 }

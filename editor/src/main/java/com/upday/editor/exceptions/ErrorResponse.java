@@ -4,6 +4,16 @@ public class ErrorResponse {
 	private int errorCode;
 	private String message;
 	
+	
+	public ErrorResponse(String msg, int errorCode) {
+		
+		this.errorCode = errorCode;
+		this.message = msg;
+	}
+	
+	public ErrorResponse() {		
+	}
+	
 	public int getErrorCode() {
 		return errorCode;
 	}

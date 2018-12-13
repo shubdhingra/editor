@@ -6,7 +6,8 @@ public class MessageConstants {
 	
 	public static final String HEADER_EMPTY_MESSAGE = "Header cannot be empty";
 	
-	 public static final String ARTICLE_UUID_CONSTRAINT = "Article UUID should not be null / empty.";
+	public static final String ARTICLE_UUID_CONSTRAINT = "Article UUID should not be null / empty.";
+	 
 	 
 
 }

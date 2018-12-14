@@ -4,9 +4,11 @@ public class EditorDaoException extends RuntimeException {
 	
 	/** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
+    
+    private int statusCode;
 
     /**
-     * Instantiates a new app manager dao exception.
+     * Instantiates a new editor dao exception.
      *
      * @param message
      *            the message
@@ -16,7 +18,7 @@ public class EditorDaoException extends RuntimeException {
     }
 
     /**
-     * Instantiates a new app manager dao exception.
+     * Instantiates a new editor dao exception.
      *
      * @param message
      *            the message
@@ -25,6 +27,11 @@ public class EditorDaoException extends RuntimeException {
      */
     public EditorDaoException(String message, Exception exception) {
         super(message, exception);
+    }
+    
+    public EditorDaoException(int errorCode, String message) {
+        super(message);
+        this.statusCode = errorCode;
     }
 
 }

@@ -13,7 +13,7 @@ import com.upday.editor.dto.ArticleDto;
 
 @Transactional
 @Service
-public interface ArticleService {
+public interface EditorService {
 	
 	public ArticleResource createArticle(ArticleDto article);
 	

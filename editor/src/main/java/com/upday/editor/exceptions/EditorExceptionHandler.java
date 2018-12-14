@@ -32,9 +32,6 @@ public class EditorExceptionHandler {
 		if (ex.getStatusCode() == 0) {
 			ex.setStatusCode(HttpStatus.BAD_REQUEST.value());
 		}
-		// return createVndErrorsResponseEntity(new
-		// AppManagerException(createList(exception.getMessage())),
-		// HttpStatus.valueOf(exception.getStatusCode()));
 		return new ResponseEntity<ErrorResponse>(new ErrorResponse(ex.getMessage(), ex.getStatusCode()),
 				HttpStatus.valueOf(ex.getStatusCode()));
 	}

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.upday.editor.constants.EditorConstants;
 import com.upday.editor.constants.ErrorConstants;
+import com.upday.editor.constants.MessageConstants;
 import com.upday.editor.dao.ArticleDao;
 import com.upday.editor.dao.entity.ArticleEntity;
 import com.upday.editor.domain.ArticleResource;
@@ -29,7 +30,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class ArticleServiceImpl implements ArticleService {
+public class EditorServiceImpl implements EditorService {
 
 	@Autowired
 	private ArticleDao articleDao;
@@ -41,6 +42,10 @@ public class ArticleServiceImpl implements ArticleService {
 	public ArticleResource createArticle(ArticleDto article) {
 
 		try {
+			ArticleEntity oldArticleEntity = articleDao.getArticleByHeaderAndAuthor(article.getHeader(), article.getAuthor());
+			if(oldArticleEntity!=null) {
+				throw new EditorServiceException(HttpStatus.CONFLICT.value(), MessageConstants.DUPLICATE_ENTRY);
+			}
 			ArticleEntity articleEntity = modelMapper.map(article, ArticleEntity.class);
 			articleEntity.setArticleUUID(EditorUtil.getUUID());
 			log.debug("Creating new aapplication with article UUID :{}", articleEntity.getArticleUUID());

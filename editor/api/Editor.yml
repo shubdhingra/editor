@@ -1,0 +1,219 @@
+swagger: '2.0'
+info:
+  title: Editor App
+  version: 1.0.0
+  description: App from a publishing company to create, read, modify and delete articles from where authors
+basePath: /api/v1
+schemes:
+  - https
+
+paths:
+  '/articles':
+    post:
+      summary: Creates a new article
+      description: |
+                  Create article with articleUUID for the respective author
+      tags:
+        - articles
+      parameters:
+        - name: article
+          in: body
+          description: parameters for creating article
+          schema:
+            $ref: '#/definitions/articleDto'
+      produces:
+        - article/json
+      responses:
+        '201':
+          description: CREATED
+          schema:
+            $ref: '#/definitions/articleResource'
+             
+    get:
+      summary: List all articles
+      description: 
+                  Returns list of articles.
+      tags:
+        - articles
+      produces:
+        - article/json
+      parameters:
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/size'
+        - $ref: '#/parameters/filter'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              _embedded:
+                type: object
+                properties:
+                  ArticlesList:
+                    type: array
+                    items:
+                      $ref: '#/definitions/articleListResource'
+              page:
+                $ref: '#/definitions/Page'
+  '/articles/{articleUUID}':
+     get:
+      summary: Returns detail of an article
+      description: |
+                  Returns detail of an article by articleUUID
+      tags:
+        - articles
+      parameters:
+        - $ref: '#/parameters/articleUUID'
+      produces:
+        - article/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/articleResource' 
+     put:
+      summary: Updates an article
+      description: |
+                  Updates article with given articleUUID
+      tags:
+        - articles
+      parameters:
+        - $ref: '#/parameters/articleUUID'
+        
+        - $ref: '#/parameters/If-Match'
+        - name: article
+          in: body
+          description: parameters for updating article
+          schema:
+            $ref: '#/definitions/articleDto'
+      produces:
+        - article/json
+        
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/articleResource'
+     delete: 
+      summary: Deletes an article
+      description: |
+                  Deletes an article by articleUUID.
+      tags:
+        - articles
+      parameters:
+        - $ref: '#/parameters/articleUUID'
+        - $ref: '#/parameters/If-Match'
+        
+      produces:
+        - article/json
+        
+      responses:
+        '204':
+          description: NO_CONTENT
+
+    
+definitions:
+  id:
+    type: string
+    format: uuid
+    maxLength: 36
+    
+  articleDto:
+    type: object
+    properties:
+      header:
+        type: string
+      description:
+        type: string
+      text:
+        type: string
+      keywords:
+        type: string
+      author:
+        type: string
+      publishDate:
+        type: string
+  
+
+  articleListResource:
+    type: object
+    properties:
+      articleUUID:
+        type: string
+      header:
+        type: string
+      description:
+        type: string
+      text:
+        type: string
+      keywords:
+        type: string
+      author:
+         type: string
+      publishDate:
+        type: string
+        
+  Page:
+    type: object
+    properties:
+      size:
+        type: integer
+      totalElements:
+        type: integer
+      totalPages:
+        type: integer
+      number:
+        type: integer      
+      
+  articleResource:
+    type: object
+    properties:
+      articleUUID:
+        $ref: '#/definitions/id'
+      eTag:
+        type: string
+      header:
+        type: string
+      text:
+        type: string
+      keywords:
+        type: string
+      description:
+       type: string
+      author:
+       type: string
+      publishDate:
+        type: string
+      
+parameters:
+  If-Match:
+    name: If-Match
+    in: header
+    type: string
+    required: true
+  articleUUID:
+    name: articleUUID
+    in: path
+    type: string
+    required: true
+  page:
+    name: page
+    in: query
+    type: integer
+    description: Specifies the requested page index.
+    default: 0
+  size:
+    name: size
+    in: query
+    type: integer
+    description: Specifies the number of elements in a page
+    default: 20
+  filter:
+    name: filter
+    in: query
+    type: string
+    description: To find subset matching to search criteria.
+     All the fields shown in the response can be used in filter. 
+     String fields support eq, in, endsWith, startsWith, contains operations.
+     example of exact match {"author":"xyz", "keywords":"xyz"} 

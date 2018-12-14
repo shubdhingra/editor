@@ -21,6 +21,10 @@ public interface ArticleRepository extends CrudRepository<ArticleEntity, String>
 	public List<ArticleEntity> findArticlesbyKeywords(@Param("keywords") String keywords);
 	
 	
+	public ArticleEntity getByHeaderAndAuthor(@Param("header") String header, 
+			@Param("author") String author);
+	
+	
 	Page<ArticleEntity> findAll(Pageable pageable);
 	
 

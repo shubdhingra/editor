@@ -26,6 +26,10 @@ repositories {
 	maven { url "https://repo.spring.io/milestone" }
 }
 
+tasks.test {
+    useTestNG()
+}
+
 
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
@@ -44,6 +48,17 @@ compile group: 'org.hibernate', name: 'hibernate-core', version: '4.1.4.Final'
 // https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
 compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '4.1.7.Final'
  compile "org.apache.commons:commons-lang3:3.5"
+ compile "com.google.code.gson:gson:2.7"
+ 
+ 	testCompile "au.com.dius:pact-jvm-consumer-junit_2.11:3.1.+"
+ 	testCompile "org.springframework.restdocs:spring-restdocs-core"
+ 	final String vSpringRestDocs = "1.1.2.RELEASE"
+  	testCompile "org.springframework.restdocs:spring-restdocs-mockmvc:$vSpringRestDocs"
+  	testCompile "org.springframework.boot:spring-boot-starter-test"
+  	testCompile "org.powermock:powermock-api-mockito:1.6.6"
+  	testCompile "org.powermock:powermock-module-testng:1.6.6"
+	testCompile("org.powermock:powermock-module-junit4:1.6.5")
+	testCompile "org.testng:testng:6.11"
 
  	
 }

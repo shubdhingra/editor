@@ -33,7 +33,7 @@ import com.upday.editor.domain.ArticleResource;
 import com.upday.editor.dto.ArticleDto;
 import com.upday.editor.exceptions.EditorException;
 import com.upday.editor.exceptions.ErrorResponse;
-import com.upday.editor.service.ArticleServiceImpl;
+import com.upday.editor.service.EditorServiceImpl;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -45,7 +45,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ArticleController {
 
 	@Autowired
-	private ArticleServiceImpl articleService;
+	private EditorServiceImpl articleService;
 
 	@ResponseStatus(CREATED)
 	@RequestMapping(method = RequestMethod.POST)

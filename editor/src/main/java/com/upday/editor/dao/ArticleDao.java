@@ -17,6 +17,7 @@ public interface ArticleDao {
 	
 	public void deleteArticle(ArticleEntity article);
 	public List<ArticleEntity> getArticlesByKeywords(String keywords);
+	public ArticleEntity getArticleByHeaderAndAuthor(String header, String author);
 
 	List<ArticleEntity> getArticlesByAuthor(String author);
 	List<ArticleEntity> getArticlesbySpec(Specification<ArticleEntity> spec);

@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Article", uniqueConstraints = {@UniqueConstraint(columnNames = {"HEADER"})})
+@Table(name="Article", uniqueConstraints = {@UniqueConstraint(columnNames = {"HEADER", "AUTHOR"})})
 public class ArticleEntity implements Serializable {
 	
 	private static final long serialVersionUID = 1L;

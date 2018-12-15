@@ -6,14 +6,29 @@ import com.upday.editor.dao.entity.ArticleEntity;
 import com.upday.editor.model.Article;
 import com.upday.editor.model.SearchCriteria;
 
+/**
+ * Utility class for providing various util methods
+ * 
+ * @author Shubham Dhingra
+ *
+ */
 public class EditorUtil {
-	
+	/**
+	 * generated the UUID for every article
+	 * 
+	 * @return UUID
+	 */
 	public static String getUUID() {
 		return UUID.randomUUID().toString();
 	}
-	
-public static ArticleEntity getArticleEntity(Article article){
-		
+
+	/**
+	 * conversion method
+	 * @param {@link Article}
+	 * @return {@link ArticleEntity}
+	 */
+	public static ArticleEntity getArticleEntity(Article article) {
+
 		ArticleEntity articleEntity = new ArticleEntity();
 		articleEntity.setArticleUUID(getUUID());
 		articleEntity.setAuthor(article.getAuthor());
@@ -22,23 +37,8 @@ public static ArticleEntity getArticleEntity(Article article){
 		articleEntity.setKeywords(article.getKeywords());
 		articleEntity.setPublishDate(article.getPublishDate());
 		articleEntity.setText(article.getText());
-		
+
 		return null;
 	}
-
-
-public static SearchCriteria getSearchCriteria(String criteria) {
-	SearchCriteria sc = new SearchCriteria();
-	String [] filter = null;
-	if(criteria !=null) {
-		if(criteria.contains(":")) {
-			filter = criteria.split(":");
-			sc.setKey(filter[0]);
-			sc.setValue(filter[1]);
-		}
-	}
-	return sc;
-	
-}
 
 }

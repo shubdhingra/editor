@@ -25,6 +25,6 @@ public interface EditorService {
 	
 	public void deleteArticle(String articleUUID);
 
-	public Page<ArticleResource> getArticles(String author, String keywords, String fromDate, String toDate, Pageable pageable);
+	public Page<ArticleResource> getArticles(String author, String keywords, Pageable pageable);
 
 }

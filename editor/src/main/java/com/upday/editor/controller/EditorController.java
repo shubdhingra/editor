@@ -85,30 +85,16 @@ public class EditorController {
 		articleService.deleteArticle(articleId);
 
 	}
-
-	/*@ResponseStatus(OK)
-	@RequestMapping(method = RequestMethod.GET)
-	@ApiOperation("getAllArticles")
-	public ResponseEntity<List<ArticleResource>> getAllArticles(
-			@RequestParam(value = "search", required = false) String search) {
-
-		log.debug("Get details of all Article");
-		List<ArticleResource> articleResource = articleService.getArticles(search);
-		return ResponseEntity.ok(articleResource);
-
-	}
-*/
+	
 	@ResponseStatus(OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation("getAllArticles")
 	public Page<ArticleResource> getArticlesBySpec(
 			@RequestParam(value = "author", required = false) final String author,
-			@RequestParam(value = "keywords", required = false) final String keywords,
-			@RequestParam(value = "fromDate", required = false) final String fromDate,
-			@RequestParam(value = "toDate", required = false) final String toDate, final Pageable pageable) {
+			@RequestParam(value = "keywords", required = false) final String keywords, final Pageable pageable) {
 
 		log.debug("Get details of all Article");
-		return articleService.getArticles(author, keywords, fromDate, toDate, pageable);
+		return articleService.getArticles(author, keywords, pageable);
 
 	}
 

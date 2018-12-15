@@ -17,18 +17,23 @@ import com.upday.editor.dao.entity.ArticleEntity;
  *
  */
 public interface ArticleRepository extends CrudRepository<ArticleEntity, String>, JpaSpecificationExecutor<ArticleEntity> {
-	
-	@Query("Select  article from ArticleEntity article where article.author=:author")
-	public List<ArticleEntity> findArticlesByAuthor(@Param("author") String author);
-	
-	@Query("Select  article from ArticleEntity article where article.keywords like:keywords")
-	public List<ArticleEntity> findArticlesbyKeywords(@Param("keywords") String keywords);
-	
-	
+
+	/**
+	 * gives the article on basis of header and Author
+	 * @param header
+	 * @param Author
+	 * @return {@link ArticleEntity}
+	 * 
+	 */
 	public ArticleEntity getByHeaderAndAuthor(@Param("header") String header, 
 			@Param("author") String author);
 	
-	
+	/**
+	 * gives the pageable list of articlea 
+	 * @param Pageable
+	 * @return Page{@link ArticleEntity}
+	 * 
+	 */
 	Page<ArticleEntity> findAll(Pageable pageable);
 	
 

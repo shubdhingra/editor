@@ -30,6 +30,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * Editor Service implementation class
+ * 
  * @author Shubham Dhingra
  *
  */
@@ -43,17 +44,28 @@ public class EditorServiceImpl implements EditorService {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	
-	
+	/**
+	 * This service method creates the article entry into the Editor app.
+	 * 
+	 * @param {@link ArticleDto}
+	 * @return {@link ArticleResource}
+	 */
 	@Override
 	public ArticleResource createArticle(ArticleDto articleDto) {
 
 		try {
+			/*
+			 * check whether the article exists already or not
+			 */
 			ArticleEntity articleEntity = articleDao.getArticleByHeaderAndAuthor(articleDto.getHeader(),
 					articleDto.getAuthor());
 			if (articleEntity != null) {
 				throw new EditorServiceException(HttpStatus.CONFLICT.value(), MessageConstants.DUPLICATE_ENTRY);
 			}
+			/*
+			 * Converting Dto to ArticleEntity , in order to persist and 
+			 * setting the generated UUID to entity.
+			 */
 			ArticleEntity newArticleEntity = modelMapper.map(articleDto, ArticleEntity.class);
 			newArticleEntity.setArticleUUID(EditorUtil.getUUID());
 			log.debug("Creating new application with article UUID :{}", newArticleEntity.getArticleUUID());
@@ -67,9 +79,15 @@ public class EditorServiceImpl implements EditorService {
 
 	}
 
+	/**
+	 * This service method returns the article list 
+	 * based on various filters (if provided).
+	 * 
+	 * @param author, keywords 
+	 * @return {@link ArticleResource}
+	 */
 	@Override
-	public Page<ArticleResource> getArticles(String author, String keywords, String fromDate, String toDate,
-			Pageable pageable) {
+	public Page<ArticleResource> getArticles(String author, String keywords,Pageable pageable) {
 		ArticleEntity filter = new ArticleEntity();
 		filter.setAuthor(author);
 		filter.setKeywords(keywords);
@@ -88,6 +106,13 @@ public class EditorServiceImpl implements EditorService {
 		return new PageImpl<>(articleResources, pageable, articleResources.size());
 	}
 
+
+	/**
+	 * This service method returns the article based on article id 
+	 * 
+	 * @param String articleUUID 
+	 * @return {@link ArticleResource}
+	 */
 	@Override
 	public ArticleResource getArticleById(String articleUUID) {
 		ArticleEntity articleEntity = articleDao.getArticleByUUID(articleUUID);
@@ -97,6 +122,12 @@ public class EditorServiceImpl implements EditorService {
 		return modelMapper.map(articleEntity, ArticleResource.class);
 	}
 
+	/**
+	 * This service method updates the article based on article id and ifmatch
+	 * 
+	 * @param {@link ArticleDto}, String articleUUID, String ifmatch
+	 * @return {@link ArticleResource}
+	 */
 	@Override
 	public ArticleResource updateArticle(ArticleDto article, String articleUUID, String ifMatch) {
 
@@ -117,6 +148,12 @@ public class EditorServiceImpl implements EditorService {
 
 	}
 
+	/**
+	 * This service method deletes the article based on article id provided
+	 * 
+	 * @paramString articleUUID
+	 * @return
+	 */
 	@Override
 	public void deleteArticle(String articleUUID) {
 		try {

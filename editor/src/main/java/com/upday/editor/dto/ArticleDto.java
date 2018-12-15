@@ -13,7 +13,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * Pojo for retrieving article details from the client
+ * @author Shubham Dhingra
+ *
+ */
 @Data
 @Builder
 @NoArgsConstructor

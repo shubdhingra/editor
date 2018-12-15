@@ -1,7 +1,5 @@
 package com.upday.editor.service;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.data.domain.Page;
@@ -10,14 +8,16 @@ import org.springframework.stereotype.Service;
 
 import com.upday.editor.domain.ArticleResource;
 import com.upday.editor.dto.ArticleDto;
-
+/**
+ * Editor Service interface
+ * @author Shubham Dhingra
+ *
+ */
 @Transactional
 @Service
 public interface EditorService {
 	
 	public ArticleResource createArticle(ArticleDto article);
-	
-	public List<ArticleResource> getArticles(String param);
 	
 	public ArticleResource getArticleById(String articleUUID);
 	
@@ -25,6 +25,6 @@ public interface EditorService {
 	
 	public void deleteArticle(String articleUUID);
 
-	public Page<ArticleResource> getArticlesbySpec(String author, String keywords, String fromDate, String toDate, Pageable pageable);
+	public Page<ArticleResource> getArticles(String author, String keywords, String fromDate, String toDate, Pageable pageable);
 
 }

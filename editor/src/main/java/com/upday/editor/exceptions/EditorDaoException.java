@@ -16,6 +16,10 @@ public class EditorDaoException extends RuntimeException {
     public EditorDaoException(String message) {
         super(message);
     }
+    
+    public EditorDaoException() {
+        super();
+    }
 
     /**
      * Instantiates a new editor dao exception.
@@ -29,6 +33,11 @@ public class EditorDaoException extends RuntimeException {
         super(message, exception);
     }
     
+    /**
+     * 
+     * @param errorCode
+     * @param message
+     */
     public EditorDaoException(int errorCode, String message) {
         super(message);
         this.statusCode = errorCode;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.upday.editor.service.EditorServiceTest">
+        <methods>
+          <include name="updateArticleFailTest" invocation-numbers="0"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.upday.editor.service.EditorServiceTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

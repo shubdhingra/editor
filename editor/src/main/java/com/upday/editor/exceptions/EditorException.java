@@ -7,9 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * The Class AppManagerException.
+ * The Class Editor Exception.
  *
- * @author avdm1h
+ * @author Shubham Dhingra
  */
 @ResponseStatus(code = HttpStatus.BAD_REQUEST)
 public class EditorException extends RuntimeException {
@@ -20,7 +20,10 @@ public class EditorException extends RuntimeException {
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-   
+   /**
+    * To instantiate EditorException
+    * @param message
+    */
     public EditorException(String message) {
         super(message.toString());
         this.exceptionMessage = message;
@@ -38,11 +41,15 @@ public class EditorException extends RuntimeException {
     public EditorException(String message, Exception exception) {
         super(message, exception);
     }
-
+    
     public String getExceptionMessage() {
-        return   exceptionMessage;
+        return exceptionMessage;
     }
 
+    /**
+     * 
+     * @param exceptionMessage
+     */
     public void setExceptionMessage(String exceptionMessage) {
         this.exceptionMessage = exceptionMessage;
     }

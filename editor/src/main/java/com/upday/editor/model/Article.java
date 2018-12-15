@@ -10,7 +10,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+/**
+ * Article Pojo class
+ * @author Shubham Dhingra
+ *
+ */
 @Builder
 @Getter
 @Setter

@@ -1,4 +1,4 @@
-package com.upday.editor.controller;
+/*package com.upday.editor.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +22,7 @@ import static org.springframework.http.HttpStatus.OK;
 
 import lombok.extern.slf4j.Slf4j;
 import io.swagger.annotations.ApiOperation;
+
 
 @RestController
 @CrossOrigin
@@ -80,3 +81,4 @@ public class AuthorController {
 	}
 
 }
+*/

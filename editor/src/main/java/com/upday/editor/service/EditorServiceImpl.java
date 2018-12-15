@@ -28,6 +28,11 @@ import com.upday.editor.util.EditorUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Editor Service implementation class
+ * @author Shubham Dhingra
+ *
+ */
 @Slf4j
 @Service
 public class EditorServiceImpl implements EditorService {
@@ -38,18 +43,21 @@ public class EditorServiceImpl implements EditorService {
 	@Autowired
 	private ModelMapper modelMapper;
 
+	
+	
 	@Override
-	public ArticleResource createArticle(ArticleDto article) {
+	public ArticleResource createArticle(ArticleDto articleDto) {
 
 		try {
-			ArticleEntity oldArticleEntity = articleDao.getArticleByHeaderAndAuthor(article.getHeader(), article.getAuthor());
-			if(oldArticleEntity!=null) {
+			ArticleEntity articleEntity = articleDao.getArticleByHeaderAndAuthor(articleDto.getHeader(),
+					articleDto.getAuthor());
+			if (articleEntity != null) {
 				throw new EditorServiceException(HttpStatus.CONFLICT.value(), MessageConstants.DUPLICATE_ENTRY);
 			}
-			ArticleEntity articleEntity = modelMapper.map(article, ArticleEntity.class);
-			articleEntity.setArticleUUID(EditorUtil.getUUID());
-			log.debug("Creating new aapplication with article UUID :{}", articleEntity.getArticleUUID());
-			ArticleEntity persistedArticleEntity = articleDao.createArticle(articleEntity);
+			ArticleEntity newArticleEntity = modelMapper.map(articleDto, ArticleEntity.class);
+			newArticleEntity.setArticleUUID(EditorUtil.getUUID());
+			log.debug("Creating new application with article UUID :{}", newArticleEntity.getArticleUUID());
+			ArticleEntity persistedArticleEntity = articleDao.createArticle(newArticleEntity);
 			return modelMapper.map(persistedArticleEntity, ArticleResource.class);
 
 		} catch (EditorDaoException e) {
@@ -60,35 +68,32 @@ public class EditorServiceImpl implements EditorService {
 	}
 
 	@Override
-	public List<ArticleResource> getArticles(String search) {
-		List<ArticleEntity> articleEntity = null;
-		List<ArticleResource> articlesresources = new ArrayList<>();
-		if (search != null) {
-			SearchCriteria sc = EditorUtil.getSearchCriteria(search);
-			if (sc.getKey().equalsIgnoreCase(EditorConstants.AUHTOR)) {
-				articleEntity = articleDao.getArticlesByAuthor(sc.getValue());
-			} else if (sc.getKey().equalsIgnoreCase(EditorConstants.KEYWORDS)) {
-				articleEntity = articleDao.getArticlesByKeywords(sc.getValue());
-			} else {
-				log.error(EditorConstants.INVALID_SEARCH_CRITERIA, search);
-				throw new ResourceNotFoundException(EditorConstants.INVALID_SEARCH_CRITERIA);
-			}
-
-		} else {
-
-			articleEntity = articleDao.getArticles();
-			articleEntity.forEach(article -> {
-				ArticleResource art = modelMapper.map(article, ArticleResource.class);
-				articlesresources.add(art);
-			});
-
+	public Page<ArticleResource> getArticles(String author, String keywords, String fromDate, String toDate,
+			Pageable pageable) {
+		ArticleEntity filter = new ArticleEntity();
+		filter.setAuthor(author);
+		filter.setKeywords(keywords);
+		Specification<ArticleEntity> spec = new ArticleSpecification(filter);
+		List<ArticleEntity> articles = articleDao.getArticlesbySpec(spec);
+		List<ArticleResource> articleResources = new ArrayList<>();
+		if (articles == null) {
+			throw new EditorServiceException(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+					ErrorConstants.UNABLE_TO_FETCH_ARTICLES);
 		}
-		return articlesresources;
+
+		articles.forEach(article -> {
+			articleResources.add(modelMapper.map(article, ArticleResource.class));
+		});
+
+		return new PageImpl<>(articleResources, pageable, articleResources.size());
 	}
 
 	@Override
 	public ArticleResource getArticleById(String articleUUID) {
 		ArticleEntity articleEntity = articleDao.getArticleByUUID(articleUUID);
+		if (articleEntity == null) {
+			throw new ResourceNotFoundException(MessageConstants.ARTICLE_NOT_FOUND);
+		}
 		return modelMapper.map(articleEntity, ArticleResource.class);
 	}
 
@@ -97,6 +102,9 @@ public class EditorServiceImpl implements EditorService {
 
 		try {
 			ArticleEntity articleEntity = articleDao.getArticleByUUID(articleUUID);
+			if (articleEntity == null) {
+				throw new ResourceNotFoundException(MessageConstants.ARTICLE_NOT_FOUND);
+			}
 			ArticleEntity newArticleEntity = modelMapper.map(article, ArticleEntity.class);
 			newArticleEntity.setArticleUUID(articleUUID);
 			newArticleEntity.setETag(Integer.valueOf(ifMatch));
@@ -121,27 +129,6 @@ public class EditorServiceImpl implements EditorService {
 			throw new EditorServiceException(e.getMessage());
 		}
 
-	}
-
-	@Override
-	public Page<ArticleResource> getArticlesbySpec(String author, String keywords, String fromDate, String toDate,
-			Pageable pageable) {
-		ArticleEntity filter = new ArticleEntity();
-		filter.setAuthor(author);
-		filter.setKeywords(keywords);
-		Specification<ArticleEntity> spec = new ArticleSpecification(filter);
-		List<ArticleEntity> articles = articleDao.getArticlesbySpec(spec);
-		List<ArticleResource> articleResources = new ArrayList<>();
-		if (articles == null) {
-			throw new EditorServiceException(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-					ErrorConstants.UNABLE_TO_FETCH_ARTICLES);
-		}
-		
-		articles.forEach(article -> {
-		articleResources.add(modelMapper.map(article, ArticleResource.class));
-		});
-
-		return new PageImpl<>(articleResources, pageable, articleResources.size());
 	}
 
 }

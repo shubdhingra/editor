@@ -16,7 +16,11 @@ import com.upday.editor.exceptions.EditorDaoException;
 import com.upday.editor.repository.ArticleRepository;
 
 import lombok.extern.slf4j.Slf4j;
-
+/**
+ * Article DAO IMPL
+ * @author Shubham Dhingra
+ *
+ */
 @Transactional
 @Repository
 @Slf4j

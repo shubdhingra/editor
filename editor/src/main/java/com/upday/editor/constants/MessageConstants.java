@@ -1,5 +1,9 @@
 package com.upday.editor.constants;
-
+/**
+ * Constants file containing API messages
+ * @author Shubham Dhingra
+ *
+ */
 public class MessageConstants {
 	
 	public static final String HEADER_CONSTRAINT_MESSAGE = "Article name field cannot be longer than 40 characters";
@@ -12,6 +16,8 @@ public class MessageConstants {
 	
 	public static final String ALREADY_MODIFIED = "Article you are trying to modify had already been modified before."
 			+ "Please re-fetch the article and re-try";
+	
+	public static final String ARTICLE_NOT_FOUND = "Article you specified does not exists.";
 	 
 	 
 

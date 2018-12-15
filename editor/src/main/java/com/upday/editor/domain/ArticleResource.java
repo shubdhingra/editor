@@ -9,7 +9,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+/**
+ * Pojo for returning the response back to the client
+ * @author Shubham Dhingra
+ *
+ */
 @Builder
 @Getter
 @Setter

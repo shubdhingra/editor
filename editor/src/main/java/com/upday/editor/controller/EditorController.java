@@ -37,12 +37,16 @@ import com.upday.editor.service.EditorServiceImpl;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-
+/**
+ * APIs to VIEW, CREATE, UPDATE, LIST and DELETE ARTICLES in EDITOR APPLICATION
+ * @author Shubham Dhingra
+ *
+ */
 @CrossOrigin
 @Slf4j
 @RestController
 @RequestMapping(value = "/api/v1/articles", produces = { APPLICATION_JSON_VALUE })
-public class ArticleController {
+public class EditorController {
 
 	@Autowired
 	private EditorServiceImpl articleService;
@@ -60,25 +64,25 @@ public class ArticleController {
 	}
 
 	@ResponseStatus(OK)
-	@RequestMapping(value = "/{articleUUID}", method = RequestMethod.PUT)
-	@ApiOperation("updateArticleByAuthUUID")
-	public ResponseEntity<ArticleResource> updateArticleByAuthUUID(
+	@RequestMapping(value = "/{articleId}", method = RequestMethod.PUT)
+	@ApiOperation("updateArticle")
+	public ResponseEntity<ArticleResource> updateArticleByArticleId(
 			@RequestBody @Validated(ArticleDto.CreateArticle.class) ArticleDto createArticleDto,
-			@PathVariable String articleUUID, @NotNull @RequestHeader(IF_MATCH) final String ifMatch) {
+			@PathVariable String articleId, @NotNull @RequestHeader(IF_MATCH) final String ifMatch) {
 
 		log.debug("Updating Article {}", createArticleDto.getHeader());
-		ArticleResource articleResource = articleService.updateArticle(createArticleDto, articleUUID, ifMatch);
+		ArticleResource articleResource = articleService.updateArticle(createArticleDto, articleId, ifMatch);
 		return new ResponseEntity<>(articleResource, HttpStatus.OK);
 
 	}
 
 	@ResponseStatus(NO_CONTENT)
-	@RequestMapping(value = "/{articleUUID}", method = RequestMethod.DELETE)
-	@ApiOperation("deletArticleByAuthUUID")
-	public void deleteArticleByAuthUUID(@PathVariable String articleUUID) {
+	@RequestMapping(value = "/{articleId}", method = RequestMethod.DELETE)
+	@ApiOperation("deletArticle")
+	public void deleteArticleByArticleId(@PathVariable String articleId) {
 
-		log.debug("Deleting Article with ID {}", articleUUID);
-		articleService.deleteArticle(articleUUID);
+		log.debug("Deleting Article with ID {}", articleId);
+		articleService.deleteArticle(articleId);
 
 	}
 
@@ -104,18 +108,18 @@ public class ArticleController {
 			@RequestParam(value = "toDate", required = false) final String toDate, final Pageable pageable) {
 
 		log.debug("Get details of all Article");
-		return articleService.getArticlesbySpec(author, keywords, fromDate, toDate, pageable);
+		return articleService.getArticles(author, keywords, fromDate, toDate, pageable);
 
 	}
 
 	@ResponseStatus(OK)
-	@RequestMapping(value = "/{articleUUID}", method = RequestMethod.GET)
-	@ApiOperation("getArticleByAuthUUID")
-	public ResponseEntity<ArticleResource> getArticleByUUID(
-			@PathVariable @NotNull(message = MessageConstants.ARTICLE_UUID_CONSTRAINT) String articleUUID) {
+	@RequestMapping(value = "/{articleId}", method = RequestMethod.GET)
+	@ApiOperation("getArticle")
+	public ResponseEntity<ArticleResource> getArticleById(
+			@PathVariable @NotNull(message = MessageConstants.ARTICLE_UUID_CONSTRAINT) String articleId) {
 
-		log.debug("Get details of Article with id {}", articleUUID);
-		ArticleResource articleResource = articleService.getArticleById(articleUUID);
+		log.debug("Get details of Article with id {}", articleId);
+		ArticleResource articleResource = articleService.getArticleById(articleId);
 		return ResponseEntity.ok(articleResource);
 
 	}

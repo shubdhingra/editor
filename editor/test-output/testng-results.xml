@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="7" passed="7">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="104" started-at="2018-12-15T16:59:32Z" finished-at="2018-12-15T16:59:32Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="104" started-at="2018-12-15T16:59:32Z" finished-at="2018-12-15T16:59:32Z">
+      <class name="com.upday.editor.service.EditorServiceTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="setup" is-config="true" duration-ms="12" started-at="2018-12-15T22:29:32Z" finished-at="2018-12-15T22:29:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="createArticleTest(com.upday.editor.dto.ArticleDto)[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="createArticleTest" duration-ms="14" started-at="2018-12-15T22:29:32Z" data-provider="articleDto" finished-at="2018-12-15T22:29:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ArticleDto(header=xyz, description=test article, text=null, keywords=xyz, author=xyz, publishDate=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createArticleTest -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="setup" is-config="true" duration-ms="1" started-at="2018-12-15T22:29:32Z" finished-at="2018-12-15T22:29:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="createArticleWithDaoException(com.upday.editor.dto.ArticleDto)[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="createArticleWithDaoException" duration-ms="3" started-at="2018-12-15T22:29:32Z" data-provider="articleDto" finished-at="2018-12-15T22:29:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ArticleDto(header=xyz, description=test article, text=null, keywords=xyz, author=xyz, publishDate=null)]]>
+              </value>
+            </param>
+          </params>
+          <exception class="com.upday.editor.exceptions.EditorServiceException">
+            <message>
+              <![CDATA[Article you are trying to add already exists.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.upday.editor.exceptions.EditorServiceException: Article you are trying to add already exists.
+	at com.upday.editor.service.EditorServiceImpl.createArticle(EditorServiceImpl.java:47)
+	at com.upday.editor.service.EditorServiceTest.createArticleWithDaoException(EditorServiceTest.java:63)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.upday.editor.exceptions.EditorServiceException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createArticleWithDaoException -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="setup" is-config="true" duration-ms="1" started-at="2018-12-15T22:29:32Z" finished-at="2018-12-15T22:29:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="createArticleWithDuplicateEntry(com.upday.editor.dto.ArticleDto)[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="createArticleWithDuplicateEntry" duration-ms="1" started-at="2018-12-15T22:29:32Z" data-provider="articleDto" finished-at="2018-12-15T22:29:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ArticleDto(header=xyz, description=test article, text=null, keywords=xyz, author=xyz, publishDate=null)]]>
+              </value>
+            </param>
+          </params>
+          <exception class="com.upday.editor.exceptions.EditorDaoException">
+            <full-stacktrace>
+              <![CDATA[com.upday.editor.exceptions.EditorDaoException
+	at com.upday.editor.service.EditorServiceTest.createArticleWithDuplicateEntry(EditorServiceTest.java:70)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.upday.editor.exceptions.EditorDaoException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createArticleWithDuplicateEntry -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="setup" is-config="true" duration-ms="1" started-at="2018-12-15T22:29:32Z" finished-at="2018-12-15T22:29:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="getArticlesByIdForNonExistentArticleTest()[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="getArticlesByIdForNonExistentArticleTest" duration-ms="1" started-at="2018-12-15T22:29:32Z" finished-at="2018-12-15T22:29:32Z">
+          <exception class="com.upday.editor.exceptions.ResourceNotFoundException">
+            <message>
+              <![CDATA[Article you specified does not exists.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.upday.editor.exceptions.ResourceNotFoundException: Article you specified does not exists.
+	at com.upday.editor.service.EditorServiceImpl.getArticleById(EditorServiceImpl.java:93)
+	at com.upday.editor.service.EditorServiceTest.getArticlesByIdForNonExistentArticleTest(EditorServiceTest.java:90)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.upday.editor.exceptions.ResourceNotFoundException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getArticlesByIdForNonExistentArticleTest -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="setup" is-config="true" duration-ms="0" started-at="2018-12-15T22:29:32Z" finished-at="2018-12-15T22:29:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="getArticlesByIdTest()[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="getArticlesByIdTest" duration-ms="0" started-at="2018-12-15T22:29:32Z" finished-at="2018-12-15T22:29:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getArticlesByIdTest -->
+        <test-method status="PASS" signature="updateArticleFailTest(com.upday.editor.dto.ArticleDto)[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="updateArticleFailTest" duration-ms="1" started-at="2018-12-15T22:29:32Z" data-provider="articleDto" finished-at="2018-12-15T22:29:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ArticleDto(header=xyz, description=test article, text=null, keywords=xyz, author=xyz, publishDate=null)]]>
+              </value>
+            </param>
+          </params>
+          <exception class="com.upday.editor.exceptions.ResourceNotFoundException">
+            <message>
+              <![CDATA[Article you specified does not exists.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.upday.editor.exceptions.ResourceNotFoundException: Article you specified does not exists.
+	at com.upday.editor.service.EditorServiceImpl.updateArticle(EditorServiceImpl.java:104)
+	at com.upday.editor.service.EditorServiceTest.updateArticleFailTest(EditorServiceTest.java:113)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.upday.editor.exceptions.ResourceNotFoundException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateArticleFailTest -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="setup" is-config="true" duration-ms="0" started-at="2018-12-15T22:29:32Z" finished-at="2018-12-15T22:29:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="setup" is-config="true" duration-ms="0" started-at="2018-12-15T22:29:32Z" finished-at="2018-12-15T22:29:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="updateArticleTest(com.upday.editor.dto.ArticleDto)[pri:0, instance:com.upday.editor.service.EditorServiceTest@59474f18]" name="updateArticleTest" duration-ms="1" started-at="2018-12-15T22:29:32Z" data-provider="articleDto" finished-at="2018-12-15T22:29:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ArticleDto(header=xyz, description=test article, text=null, keywords=xyz, author=xyz, publishDate=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateArticleTest -->
+      </class> <!-- com.upday.editor.service.EditorServiceTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

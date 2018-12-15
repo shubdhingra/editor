@@ -11,7 +11,11 @@ import org.springframework.data.repository.query.Param;
 
 import com.upday.editor.dao.entity.ArticleEntity;
 
-
+/**
+ * Article Repository
+ * @author Shubham Dhingra
+ *
+ */
 public interface ArticleRepository extends CrudRepository<ArticleEntity, String>, JpaSpecificationExecutor<ArticleEntity> {
 	
 	@Query("Select  article from ArticleEntity article where article.author=:author")

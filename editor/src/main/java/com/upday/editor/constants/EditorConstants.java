@@ -1,5 +1,10 @@
 package com.upday.editor.constants;
 
+/**
+ * Constants file containing application constants
+ * @author Shubham Dhingra
+ *
+ */
 public class EditorConstants {
 	
 	public static String KEYWORDS = "keywords";

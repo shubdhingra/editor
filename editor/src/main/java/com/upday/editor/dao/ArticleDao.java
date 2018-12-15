@@ -5,7 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.domain.Specification;
 
 import com.upday.editor.dao.entity.ArticleEntity;
-
+/**
+ * Article DAO Layer
+ * @author Shubham Dhingra
+ *
+ */
 public interface ArticleDao {
 	
 	

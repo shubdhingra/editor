@@ -19,7 +19,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * Article entry which gets persisted in the DB
+ * @author Shubham Dhingra
+ *
+ */
 @Entity
 @Data
 @Builder

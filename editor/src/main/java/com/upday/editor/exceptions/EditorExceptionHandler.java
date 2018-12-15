@@ -15,6 +15,11 @@ import com.upday.editor.constants.ErrorConstants;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Editor Exception handler for handling al the exceptions thrown by the editor application
+ * @author Shubham Dhingra
+ *
+ */
 @ControllerAdvice
 @RestController
 @Slf4j
@@ -25,6 +30,7 @@ public class EditorExceptionHandler {
 		return new ResponseEntity<ErrorResponse>(new ErrorResponse(ex.getMessage(), HttpStatus.OK.value()),
 				HttpStatus.OK);
 	}
+
 
 	@ExceptionHandler(value = EditorServiceException.class)
 	public ResponseEntity<ErrorResponse> handlerForAppManagerServiceException(EditorServiceException ex) {

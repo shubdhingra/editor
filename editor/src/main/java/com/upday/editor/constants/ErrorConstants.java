@@ -1,5 +1,9 @@
 package com.upday.editor.constants;
-
+/**
+ * Constants file containing error messages
+ * @author Shubham Dhingra
+ *
+ */
 public class ErrorConstants {
 	
 	public static final String INVALID_PAYLOAD = "Invalid Payload";

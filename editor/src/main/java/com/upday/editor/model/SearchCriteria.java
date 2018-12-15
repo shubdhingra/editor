@@ -7,6 +7,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Search criteria pojo for getting list of articles on the basis of some filters
+ * @author Shubham Dhingra
+ *
+ */
 @Data
 @Builder
 @Getter

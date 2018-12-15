@@ -4,9 +4,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
+/**
+ * Bean created for coverting a domain object to entity and
+ * vice-versa
+ * @author Shubham Dhingra
+ *
+ */
 @Configuration
 public class ConfigBeans {
 

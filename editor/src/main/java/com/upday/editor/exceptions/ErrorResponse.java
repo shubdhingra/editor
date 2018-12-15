@@ -1,7 +1,17 @@
 package com.upday.editor.exceptions;
-
+/**
+ * Error Response
+ * @author Shubham Dhingra
+ *
+ */
 public class ErrorResponse {
+	/**
+	 * the errorCode
+	 */
 	private int errorCode;
+	/**
+	 * the message 
+	 */
 	private String message;
 	
 	
@@ -11,12 +21,24 @@ public class ErrorResponse {
 		this.message = msg;
 	}
 	
+	/**
+	 * to instantiate error response
+	 */
 	public ErrorResponse() {		
 	}
 	
+	/**
+	 * gets the errorcode
+	 * @return errorCode
+	 */
 	public int getErrorCode() {
 		return errorCode;
 	}
+	
+	/**
+	 * sets the errorcode
+	 * @param errorCode
+	 */
 	public void setErrorCode(int errorCode) {
 		this.errorCode = errorCode;
 	}

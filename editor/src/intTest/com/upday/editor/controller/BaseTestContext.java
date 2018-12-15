@@ -15,8 +15,6 @@ import org.springframework.web.context.WebApplicationContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.upday.editor.dto.ArticleDto;
 import org.testng.annotations.DataProvider;
 
@@ -34,9 +32,6 @@ public class BaseTestContext extends AbstractTestNGSpringContextTests {
 
 	@Autowired
 	private WebApplicationContext webApplicationContext;
-
-	@Getter
-	private ObjectMapper objectMapper;
 	
 	@BeforeMethod
     public void setup(final Method method) throws Exception {
@@ -51,8 +46,8 @@ public class BaseTestContext extends AbstractTestNGSpringContextTests {
 	    }
 	 
 	 
-	 @DataProvider(name = "createArticleDto")
-	 protected static Object[][] createArticleDto() {
+	 @DataProvider(name = "articleDto")
+	 protected static Object[][] articleDto() {
 		 return new Object[][] {{ArticleDto.builder().author("dummy").description("dummy data article").header("Dummy Article")
 			 .keywords("dummy data").build()}};
 	 }

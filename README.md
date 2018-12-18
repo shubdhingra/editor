@@ -47,5 +47,16 @@ Path : editor/editor/api/Editor.yml
 3. Test reports - This document briefly describes the nature and amount of test cases written for this project.
 Path : editor/editor/test-output/Default suite/Default test.html
 
+#### Article properties :
+An article comprises of below mentioned properties :
+1. Header
+2. Description
+3. Text
+4. Keywords
+5. Author
+6. PublishDate
+
+An article is considered as duplicate if it has same values for author and Header.
+
 #### License:
 This is an open source project and you are free to copy, modify, and distribute the project.

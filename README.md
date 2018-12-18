@@ -4,7 +4,7 @@ https://github.com/shubdhingra/editor/
 
 #### Description:
 This application is majorly developed for different publishing houses, where various articles can be present from various authors.
-With this application, u user can not only read an article from a publishing database, but also can create, modify and delete the article entry into the database.
+With this application, a user can not only read an article from a publishing database, but also can create, modify and delete the article entry into the database.
 It is very simple and generic to use. Moroever, this application enables a user to read/fetch the article by filtering on the basis of authors, keywords, etc.
 
 #### Pre-Requisites:
@@ -56,7 +56,11 @@ An article comprises of below mentioned properties :
 5. Author
 6. PublishDate
 
-An article is considered as duplicate if it has same values for author and Header.
+#### Validations:
+1. An article is considered as duplicate if it has same values for author and Header.
+2. KEYWORDS can have multiple words sperated by comma.
+3. HEADER is a mandatory property with max size of 200 characters.
+4. DESCRIPTION property should not exceed more than 200 characters.
 
 #### License:
 This is an open source project and you are free to copy, modify, and distribute the project.

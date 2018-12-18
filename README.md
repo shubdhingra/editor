@@ -8,7 +8,7 @@ With this application, a user can not only read an article from a publishing dat
 It is very simple and generic to use. Moroever, this application enables a user to read/fetch the article by filtering on the basis of authors, keywords, etc.
 
 #### Pre-Requisites:
-Before executing Editor App , you may require:
+Before executing Editor App , you may require :
 Java
 SpringBoot
 Gradle

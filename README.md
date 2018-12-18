@@ -47,7 +47,7 @@ Path : editor/editor/api/Editor.yml
 3. Test reports - This document briefly describes the nature and amount of test cases written for this project.
 Path : editor/editor/test-output/Default suite/Default test.html
 
-#### Article properties :
+#### Article Properties :
 An article comprises of below mentioned properties :
 1. Header
 2. Description

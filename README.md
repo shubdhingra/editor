@@ -18,7 +18,7 @@ any IDEs, etc.
 1. Import the files into an IDE.
 2. Once done, right click the root folder of the project and select gradle refresh/gradle build. This will download all the necessary libraries, the project requires.
 3. Once downloaded, now you can again right click the project root folder and select Run As SpringBoot Application , under Run as option.
-4. Once execute successfully, you can hit http://localhost:8500/swagger-ui.html, to have the feel of the application.
+4. Once execute successfully, you can reach out here ] (http://localhost:8500/swagger-ui.html)to have the feel of the application.
 5. Utilise various APIs listed, as per the needs.
 
 #### Features:
@@ -33,12 +33,11 @@ vii.A user can fetch an article which consist of some particular keyword as a fi
 viiiA combination of above 2 filters can also be applied, while fetching the articles.
 
 #### Future Scope:
-Right now, this application caters the most basic need of a publishing house.But the scope of 
-this application can be extended further by implementing below features as future plan:
-
-i.  Another filter based on period/publishing date can be added while fetching the articles.
-ii. Some security can be added by allowing rescticted access or scope based access using JWT tokens.
-iii.
+Due to the time constraint, this application only caters the most basic needs of a publishing house.
+But the scope of this application is much broader and needs to be expanded further by implementing below features as future plan :
+i.  Another filter based on period/publishing date needs be added while fetching the articles.
+ii. Security aspects needs to be added by allowing rescticted access or scope based access only using JWT tokens.
+iii.As per now, basic required test cases have been implemented, which can be extended to cover entire code base.
 
 #### Project Documentation:
 1. Swagger Documentation - This document will provide a detailed information about the various APIs being provided as various features in this application. 

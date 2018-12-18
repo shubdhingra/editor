@@ -18,26 +18,26 @@ any IDEs, etc.
 1. Import the files into an IDE.
 2. Once done, right click the root folder of the project and select gradle refresh/gradle build. This will download all the necessary libraries, the project requires.
 3. Once downloaded, now you can again right click the project root folder and select Run As SpringBoot Application , under Run as option.
-4. Once execute successfully, you can reach out here ] (http://localhost:8500/swagger-ui.html)to have the feel of the application.
+4. Once execute successfully, click on the link http://localhost:8500/swagger-ui.html to have the feel of the application.
 5. Utilise various APIs listed, as per the needs.
 
 #### Features:
 Editor application consists of various APIs as different features mentioned below :
-i.  A user can a create an article by providing the required details of the same
-ii. A user can update an already existing article by providing the artile id as input and the payload as body.
-iii.A user can delete an article on the basis of artilce id from editor application.
-iv. A user can read each article using the artilce id.
-v.  A user can fetch all the artilces available in the editor database.
-vi. A user can fetch articles from some particular author in the editor database.
-vii.A user can fetch an article which consist of some particular keyword as a filter.
-viiiA combination of above 2 filters can also be applied, while fetching the articles.
+1.  A user can a create an article by providing the required details of the same
+2. A user can update an already existing article by providing the artile id as input and the payload as body.
+3.A user can delete an article on the basis of artilce id from editor application.
+4. A user can read each article using the artilce id.
+5.  A user can fetch all the artilces available in the editor database.
+6. A user can fetch articles from some particular author in the editor database.
+7. A user can fetch an article which consist of some particular keyword as a filter.
+8. A combination of above 2 filters can also be applied, while fetching the articles.
 
 #### Future Scope:
 Due to the time constraint, this application only caters the most basic needs of a publishing house.
 But the scope of this application is much broader and needs to be expanded further by implementing below features as future plan :
-i.  Another filter based on period/publishing date needs be added while fetching the articles.
-ii. Security aspects needs to be added by allowing rescticted access or scope based access only using JWT tokens.
-iii.As per now, basic required test cases have been implemented, which can be extended to cover entire code base.
+1.  Another filter based on period/publishing date needs be added while fetching the articles.
+2. Security aspects needs to be added by allowing rescticted access or scope based access only using JWT tokens.
+3.As per now, basic required test cases have been implemented, which can be extended to cover entire code base.
 
 #### Project Documentation:
 1. Swagger Documentation - This document will provide a detailed information about the various APIs being provided as various features in this application. 

@@ -36,8 +36,8 @@ Editor application consists of various APIs as different features mentioned belo
 Due to the time constraint, this application only caters the most basic needs of a publishing house.
 But the scope of this application is much broader and needs to be expanded further by implementing below features as future plan :
 1.  Another filter based on period/publishing date needs be added while fetching the articles.
-2. Security aspects needs to be added by allowing rescticted access or scope based access only using JWT tokens.
-3.As per now, basic required test cases have been implemented, which can be extended to cover entire code base.
+2. Security aspects needs to be added by allowing rescticted access or scope based access only using JWT tokens. 
+3. As per now, basic required test cases have been implemented, which can be extended to cover entire code base.
 
 #### Project Documentation:
 1. Swagger Documentation - This document will provide a detailed information about the various APIs being provided as various features in this application. 

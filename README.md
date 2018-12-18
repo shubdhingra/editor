@@ -3,7 +3,7 @@ https://github.com/shubdhingra/editor/
 ### Author - Shubham Dhingra
 
 #### Description:
-This application is majorly developed for different publishing houses, where various articles can be present from various authors.
+This application is majorly developed for a publishing house, where various articles can be present from various authors.
 With this application, a user can not only read an article from a publishing database, but also can create, modify and delete the article entry into the database.
 It is very simple and generic to use. Moroever, this application enables a user to read/fetch the article by filtering on the basis of authors, keywords, etc.
 

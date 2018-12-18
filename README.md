@@ -57,7 +57,8 @@ An article comprises of below mentioned properties :
 6. PublishDate
 
 #### Validations:
-1. An article is considered as duplicate if it has same values for author and Header.
+1. An article is considered as duplicate if it has same values for author and Header. 
+   Thus, two articles can not have same header and author.
 2. KEYWORDS can have multiple words sperated by comma.
 3. HEADER is a mandatory property with max size of 200 characters.
 4. DESCRIPTION property should not exceed more than 200 characters.

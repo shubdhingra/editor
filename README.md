@@ -12,6 +12,7 @@ Before executing Editor App , you may require:
 Java
 SpringBoot
 Gradle
+TestNg
 any IDEs, etc.
 
 #### Steps To Setup:
@@ -40,9 +41,11 @@ But the scope of this application is much broader and needs to be expanded furth
 3. As per now, basic required test cases have been implemented, which can be extended to cover entire code base.
 
 #### Project Documentation:
-1. Swagger Documentation - This document will provide a detailed information about the various APIs being provided as various features in this application. 
-LINK :editor/editor/api/Editor.yml
-2. Java Docs - editor/editor/javadoc.xml
+1. Swagger Documentation - This document will provide a detailed information about the various APIs being provided as various features in       this application.
+Path : editor/editor/api/Editor.yml
+2. Java Docs - editor/editor/doc/
+3. Test reports - This document briefly describes the nature and amount of test cases written for this project.
+Path : editor/editor/test-output/Default suite/Default test.html
 
 #### License:
 This is an open source project and you are free to copy, modify, and distribute the project.
